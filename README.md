@@ -48,7 +48,7 @@ This project is a **Disaster Management and Weather Forecasting App** that provi
    - Requests
    - Groq
 ```cmd
-pip install groq flask request
+pip install flask requests groq
 ```
 3. **Set Up API Keys**:
    - **Groq API Key**:
