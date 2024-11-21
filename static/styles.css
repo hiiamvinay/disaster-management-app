@@ -1,0 +1,141 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #4960c6;
+            color: #fff;
+            padding: 0;
+            align-items: center;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    color: #333;
+    text-align: center;
+}
+
+h1, h2 {
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="text"] {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #4364f7;
+    box-shadow: 0 0 5px rgba(67, 100, 247, 0.5);
+}
+
+button {
+    padding: 15px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #0056b3, #003a7a);
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
+    background: #f4f4f4;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background: linear-gradient(135deg, #007BFF, #0056b3);
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    background: white;
+    color: #555;
+}
+
+tr:nth-child(even) td {
+    background: #f9f9f9;
+}
+
+.disaster-alert {
+    background: #ff6b6b;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #d9534f;
+    margin-bottom: 20px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.no-disaster {
+    background: #65c965;
+    color: #fff;
+    padding: 6px;
+    border-radius: 8px;
+    border: 2px solid #28a745;
+    margin-bottom: 20px;
+    font-size: 23px;
+    font-weight: bold;
+    
+}
+
+.icon {
+    font-size: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #ddd;
+}
+
+.today-info {
+    margin-top :0;
+    margin-left: 370px;
+    margin-bottom: 0px;
+    padding-bottom: 2px;
+    color: purple;
+    text-align: left;
+    
+    
+}

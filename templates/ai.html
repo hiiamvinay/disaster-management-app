@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disaster Management Chatbot</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #4960c6;
+            color: #fff;
+            margin-top: 160px;
+            padding: 0;
+            align-items: center;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 16px;
+            background: linear-gradient(135deg, #007BFF, #0056b3);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out, transform 0.2s;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            color: #333;
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+            background: #002c8f;
+            color: #fff;
+            margin: 0;
+            padding: 15px 0;
+        }
+
+        #chatbox {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            max-height: 400px;
+        }
+
+        #chat-log {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .You, .Chatbot {
+            padding: 10px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            max-width: 80%;
+        }
+
+        .You {
+            align-self: flex-end;
+            background: #0238b5;
+            color: #fff;
+        }
+
+        .Chatbot {
+            align-self: flex-start;
+            background: #e0e0e0;
+            color: #333;
+            text-align: left;
+        }
+
+        #input-section {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: #f9f9f9;
+            border-top: 1px solid #ddd;
+        }
+
+        #user-input {
+            flex-grow: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            outline: none;
+            margin-right: 10px;
+        }
+
+        #send-btn {
+            background: #002c8f;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        #send-btn:hover {
+            background: #4a4d82;
+        }
+
+        #chatbox::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        #chatbox::-webkit-scrollbar-thumb {
+            background: #4caf50;
+            border-radius: 10px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/2.1.0/showdown.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Disaster Management Chatbot</h1>
+        <div id="chatbox">
+            <div id="chat-log"></div>
+        </div>
+        <div id="input-section">
+            <input type="text" id="user-input" placeholder="Type your message here..." required>
+            <button id="send-btn">Send</button>
+        </div>
+        <div>
+            <button onclick="window.location.href='/'">Back to Home Page</button>
+        </div>
+    </div>
+    <script>
+        const sendBtn = document.getElementById('send-btn');
+        const userInput = document.getElementById('user-input');
+        const chatLog = document.getElementById('chat-log');
+        const converter = new showdown.Converter(); // Markdown to HTML converter
+
+        function appendMessage(sender, message, isMarkdown = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = sender;
+            messageDiv.innerHTML = isMarkdown ? converter.makeHtml(message) : message; // Render message content only
+            chatLog.appendChild(messageDiv);
+            chatLog.scrollTop = chatLog.scrollHeight; // Auto-scroll to the latest message
+}
+
+
+        sendBtn.addEventListener('click', () => {
+            const message = userInput.value.trim();
+            if (message) {
+                appendMessage('You', message);
+                
+                fetch('/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ message }),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    appendMessage('Chatbot', data.reply, true); // Process Markdown
+                })
+                .catch(error => {
+                    appendMessage('Chatbot', 'Sorry, there was an error processing your request.');
+                });
+                userInput.value = ''; // Clear input field
+            }
+        });
+
+        // Enable Enter key to send messages
+        userInput.addEventListener('keypress', (event) => {
+            if (event.key === 'Enter') {
+                sendBtn.click();
+            }
+        });
+    </script>
+</body>
+</html>

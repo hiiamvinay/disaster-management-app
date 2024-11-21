@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Results</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Weather Forecast for {{ location }}</h1>
+        {% if disasters %}
+        <div class="disaster-alert">
+            <h2>Potential Disaster Alerts!</h2>
+            <ul>
+                {% for disaster in disasters %}
+                <li>{{ disaster }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% else %}
+        <div class="no-disaster">
+            <p>No Disasters Detected in this region.</p>
+        </div>
+        {% endif %}
+
+        <div class="today-weather">
+            <h2>Today's Weather</h2>
+            <div class="today-info">
+                    <p><strong>Max Temp:</strong> {{ today.max_temp }}°C</p>
+                    <p><strong>Min Temp:</strong> {{ today.min_temp }}°C</p>
+                    <p><strong>Description:</strong> {{ today.description }}</p>
+                    <p><strong>Wind Speed:</strong> {{ today.wind_speed }} m/s</p>
+                    <p><strong>Rain:</strong> {{ today.rain }} mm</p>
+            </div>
+        </div>
+
+        <h2>3-Day Forecast</h2>
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Max Temp</th>
+                <th>Min Temp</th>
+                <th>Description</th>
+                <th>Wind Speed</th>
+                <th>Rain</th>
+            </tr>
+            {% for day in forecast %}
+            <tr>
+                <td>{{ day.datetime }}</td>
+                <td>{{ day.max_temp }}°C</td>
+                <td>{{ day.min_temp }}°C</td>
+                <td>{{ day.description }}</td>
+                <td>{{ day.wind_speed }} m/s</td>
+                <td>{{ day.rain }} mm</td>
+            </tr>
+            {% endfor %}
+        </table>
+    <div>
+   <br>
+   <button onclick="window.location.href='/'"> Back to Home Page</button>
+    </div>
+
+    </div>
+
+</body>
+</html>

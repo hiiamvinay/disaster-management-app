@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body style="margin-top: 170px;">
+    <div class="container">
+        
+        <h1>Weather Forecast</h1>
+
+        
+        <form action="/weather" method="post">
+            <input type="text" name="location" placeholder="Enter your location (e.g Jaipur)" required>
+            <button type="submit">Get Weather</button>
+        </form>
+        <br>
+        <h3> OR</h3>
+        <hr style="color: blue;">
+        <div style="margin-top: 30px; align-items: center; ">
+            <h1> Want to have AI Help </h1>
+            <div> <button style="width:900px"  onclick="window.location.href='/ai'"> AI chat </button> </div>
+        </div>
+        
+        
+        
+    </div>
+    
+</body>
+</html>
+
+
