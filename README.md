@@ -69,7 +69,7 @@ pip install flask requests groq
    cd disaster-management-app
    ```
 
-3. Set your API keys in the `API_KEY` variable in `app.py`:
+3. Set your API keys in the `API_KEY` variable in `app.py` and `chatbot.py`:
    - Replace `<YOUR_API_KEY>` with your OpenWeatherMap API key.
    - Replace `<YOUR_GROQ_API_KEY>` with your Groq API key.
 
