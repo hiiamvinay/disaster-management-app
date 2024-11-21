@@ -140,7 +140,7 @@ This project is licensed under the MIT License. Feel free to use, modify, and di
 
 - [OpenWeatherMap](https://openweathermap.org/) for weather data.
 - [OpenStreetMap](https://www.openstreetmap.org/) for geolocation services.
-- Llama3-based AI for disaster-related queries, powered by [Groq](https://console.groq.com/keys).
+- Llama3-based AI for disaster-related queries, powered by [Groq](https://groq.com/).
 
 ---
 
