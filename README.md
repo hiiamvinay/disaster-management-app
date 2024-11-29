@@ -46,7 +46,10 @@ This project is a **Disaster Management and Weather Forecasting App** that provi
 2. **Install Required Libraries**:
    - Flask
    - Requests
-   - Groq 
+   - Groq
+```cmd
+pip install flask requests groq
+```
 3. **Set Up API Keys**:
    - **Groq API Key**:
      - Obtain an API key from [Groq Console](https://console.groq.com/keys).
@@ -66,7 +69,7 @@ This project is a **Disaster Management and Weather Forecasting App** that provi
    cd disaster-management-app
    ```
 
-3. Set your API keys in the `API_KEY` variable in `app.py`:
+3. Set your API keys in the `API_KEY` variable in `app.py` and `chatbot.py`:
    - Replace `<YOUR_API_KEY>` with your OpenWeatherMap API key.
    - Replace `<YOUR_GROQ_API_KEY>` with your Groq API key.
 
@@ -137,7 +140,7 @@ This project is licensed under the MIT License. Feel free to use, modify, and di
 
 - [OpenWeatherMap](https://openweathermap.org/) for weather data.
 - [OpenStreetMap](https://www.openstreetmap.org/) for geolocation services.
-- Llama3-based AI for disaster-related queries, powered by [Groq](https://console.groq.com/keys).
+- Llama3-based AI for disaster-related queries, powered by [Groq](https://groq.com/).
 
 ---
 
